@@ -1,0 +1,121 @@
+/* Token warna dipakai bersama oleh login + dashboard.
+           Aksen tunggal (teal) supaya tidak jatuh ke biru-ungu default. */
+:root {
+    color-scheme: light dark;
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --text: #16202b;
+    --muted: #55606b;
+    --border: #6f7a85;
+    --accent: #0e3e38;
+    --accent-hover: #14524a;
+    --accent-text: #ffffff;
+    --danger: #a01f1f;
+    --focus: #0e3e38;
+}
+
+/* Ikut tema sistem, tanpa tombol toggle dan tanpa JavaScript. */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #12161b;
+        --surface: #1a2027;
+        --text: #eef2f6;
+        --muted: #a9b4bf;
+        --border: #6b7681;
+        --accent: #57c8b5;
+        --accent-hover: #7ad9c9;
+        --accent-text: #0b1f1c;
+        --danger: #ff9b9b;
+        --focus: #7ad9c9;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    color: var(--text);
+    /* 1rem, bukan 16px: ukuran teks ikut preferensi font pengguna. */
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+main {
+    width: 100%;
+    max-width: 22rem;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.subtitle {
+    margin: 4px 0 20px;
+    color: var(--muted);
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: inherit;
+    font: inherit;
+}
+
+.field + .field {
+    margin-top: 16px;
+}
+
+button {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 24px;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--accent);
+    color: var(--accent-text);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent-hover);
+}
+
+/* Outline bawaan diganti, bukan dihapus, supaya fokus keyboard tetap terlihat. */
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+/* Tepi kiri menandai status error, bukan hiasan. */
+.error {
+    margin: 0 0 16px;
+    padding: 8px 12px;
+    border-left: 3px solid var(--danger);
+    color: var(--danger);
+}

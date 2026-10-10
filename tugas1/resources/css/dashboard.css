@@ -1,0 +1,122 @@
+/* Token yang sama dengan halaman login, supaya kedua halaman satu bahasa visual. */
+:root {
+    color-scheme: light dark;
+    --bg: #f4f6f8;
+    --surface: #ffffff;
+    --text: #16202b;
+    --muted: #55606b;
+    --border: #6f7a85;
+    --accent: #0e3e38;
+    --accent-hover: #14524a;
+    --accent-text: #ffffff;
+    --focus: #0e3e38;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #12161b;
+        --surface: #1a2027;
+        --text: #eef2f6;
+        --muted: #a9b4bf;
+        --border: #6b7681;
+        --accent: #57c8b5;
+        --accent-hover: #7ad9c9;
+        --accent-text: #0b1f1c;
+        --focus: #7ad9c9;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    /* 1rem, bukan 16px: ukuran teks ikut preferensi font pengguna. */
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.shell {
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+button {
+    min-height: 44px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--surface);
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+/* Outline bawaan diganti, bukan dihapus, supaya fokus keyboard tetap terlihat. */
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+}
+
+.greeting {
+    margin: 24px 0 4px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.note {
+    margin: 0 0 24px;
+    color: var(--muted);
+}
+
+/* Daftar istilah dan nilainya, bukan sekumpulan paragraf. */
+dl {
+    margin: 0;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+dt {
+    font-weight: 600;
+}
+
+dd {
+    margin: 2px 0 0;
+    color: var(--muted);
+}
+
+dd + dt {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
